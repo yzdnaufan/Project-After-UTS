@@ -1,5 +1,3 @@
 # UTS-PBO
 
-Ini README
-
-dan Dokumentasi
+U don't belong here, please go to master branch
