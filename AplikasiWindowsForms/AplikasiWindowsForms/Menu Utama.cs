@@ -16,5 +16,12 @@ namespace AplikasiWindowsForms
         {
             InitializeComponent();
         }
+
+        private void Load_Menu_Utama(object sender, EventArgs e)
+        {
+            //buka login
+            LoginPage newLogin = new LoginPage();
+            newLogin.ShowDialog();
+
+        }
     }
-}

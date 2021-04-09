@@ -68,6 +68,9 @@
     <EmbeddedResource Include="Login Page.resx">
       <DependentUpon>Login Page.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Menu Utama.resx">
+      <DependentUpon>Menu Utama.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
