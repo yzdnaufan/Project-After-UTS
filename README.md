@@ -17,9 +17,9 @@ Untuk login, Anda bisa menggunakan login default, yaitu dengan # username : admi
 
 setelah berhasil login, anda dapat menambah siswa, menambah kelas, dan mengedit kehadiran berdasarkan status kehadiran siswa. Status kehadiran yang dapat dihitung hanya ada 4 saja yaitu 
    1. hadir
-   2. ijin
-   3. terlambat
-   4. absen
+   2. absen
+   3. ijin
+   4. terlambat
 
 Note : semua penulisan harus sesuai dokumentasi agar dapat terhitung oleh program untuk mengakumulasi total kehadiran dan lain-lainnya.
 
