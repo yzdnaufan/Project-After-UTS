@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.RegisterButton = new System.Windows.Forms.Button();
             this.GetButton = new System.Windows.Forms.Button();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.UserLabel = new System.Windows.Forms.ToolStripStatusLabel();
@@ -40,6 +41,8 @@
             this.HapusButton = new System.Windows.Forms.Button();
             this.SimpanButton = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.namaSiswaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.statusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabelLaporanBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataSet11 = new AplikasiWindowsForms.DataSet1();
             this.label2 = new System.Windows.Forms.Label();
@@ -49,22 +52,20 @@
             this.dataKelasBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataSet1 = new AplikasiWindowsForms.DataSet1();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.dataKelasTableAdapter = new AplikasiWindowsForms.DataSet1TableAdapters.DataKelasTableAdapter();
-            this.dataSet1BindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.tabelLaporanTableAdapter = new AplikasiWindowsForms.DataSet1TableAdapters.TabelLaporanTableAdapter();
-            this.namaSiswaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.statusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Getbutton1 = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.listView1 = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.button1 = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.dataKelasTableAdapter = new AplikasiWindowsForms.DataSet1TableAdapters.DataKelasTableAdapter();
+            this.dataSet1BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tabelLaporanTableAdapter = new AplikasiWindowsForms.DataSet1TableAdapters.TabelLaporanTableAdapter();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -90,6 +91,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.RegisterButton);
             this.tabPage1.Controls.Add(this.GetButton);
             this.tabPage1.Controls.Add(this.statusStrip1);
             this.tabPage1.Controls.Add(this.TambahSiswaButton);
@@ -108,6 +110,16 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Kehadiran";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // RegisterButton
+            // 
+            this.RegisterButton.Location = new System.Drawing.Point(621, 482);
+            this.RegisterButton.Name = "RegisterButton";
+            this.RegisterButton.Size = new System.Drawing.Size(136, 31);
+            this.RegisterButton.TabIndex = 11;
+            this.RegisterButton.Text = "Register";
+            this.RegisterButton.UseVisualStyleBackColor = true;
+            this.RegisterButton.Click += new System.EventHandler(this.RegisterButton_Click);
             // 
             // GetButton
             // 
@@ -134,8 +146,8 @@
             // UserLabel
             // 
             this.UserLabel.Name = "UserLabel";
-            this.UserLabel.Size = new System.Drawing.Size(45, 20);
-            this.UserLabel.Text = "User :";
+            this.UserLabel.Size = new System.Drawing.Size(62, 20);
+            this.UserLabel.Text = "User Id :";
             // 
             // StatusLabelUser
             // 
@@ -197,6 +209,18 @@
             this.dataGridView1.Size = new System.Drawing.Size(392, 355);
             this.dataGridView1.TabIndex = 4;
             // 
+            // namaSiswaDataGridViewTextBoxColumn
+            // 
+            this.namaSiswaDataGridViewTextBoxColumn.DataPropertyName = "NamaSiswa";
+            this.namaSiswaDataGridViewTextBoxColumn.HeaderText = "NamaSiswa";
+            this.namaSiswaDataGridViewTextBoxColumn.Name = "namaSiswaDataGridViewTextBoxColumn";
+            // 
+            // statusDataGridViewTextBoxColumn
+            // 
+            this.statusDataGridViewTextBoxColumn.DataPropertyName = "Status";
+            this.statusDataGridViewTextBoxColumn.HeaderText = "Status";
+            this.statusDataGridViewTextBoxColumn.Name = "statusDataGridViewTextBoxColumn";
+            // 
             // tabelLaporanBindingSource
             // 
             this.tabelLaporanBindingSource.DataMember = "TabelLaporan";
@@ -256,7 +280,7 @@
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.button1);
+            this.tabPage2.Controls.Add(this.Getbutton1);
             this.tabPage2.Controls.Add(this.label3);
             this.tabPage2.Controls.Add(this.label4);
             this.tabPage2.Controls.Add(this.dateTimePicker2);
@@ -270,30 +294,52 @@
             this.tabPage2.Text = "Laporan";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // dataKelasTableAdapter
+            // Getbutton1
             // 
-            this.dataKelasTableAdapter.ClearBeforeFill = true;
+            this.Getbutton1.Location = new System.Drawing.Point(469, 58);
+            this.Getbutton1.Name = "Getbutton1";
+            this.Getbutton1.Size = new System.Drawing.Size(69, 23);
+            this.Getbutton1.TabIndex = 15;
+            this.Getbutton1.Text = "Get";
+            this.Getbutton1.UseVisualStyleBackColor = true;
+            this.Getbutton1.Click += new System.EventHandler(this.Getbutton1_Click);
             // 
-            // dataSet1BindingSource
+            // label3
             // 
-            this.dataSet1BindingSource.DataSource = this.dataSet1;
-            this.dataSet1BindingSource.Position = 0;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(260, 33);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(60, 17);
+            this.label3.TabIndex = 14;
+            this.label3.Text = "Tanggal";
             // 
-            // tabelLaporanTableAdapter
+            // label4
             // 
-            this.tabelLaporanTableAdapter.ClearBeforeFill = true;
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(24, 33);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(43, 17);
+            this.label4.TabIndex = 13;
+            this.label4.Text = "Kelas";
             // 
-            // namaSiswaDataGridViewTextBoxColumn
+            // dateTimePicker2
             // 
-            this.namaSiswaDataGridViewTextBoxColumn.DataPropertyName = "NamaSiswa";
-            this.namaSiswaDataGridViewTextBoxColumn.HeaderText = "NamaSiswa";
-            this.namaSiswaDataGridViewTextBoxColumn.Name = "namaSiswaDataGridViewTextBoxColumn";
+            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker2.Location = new System.Drawing.Point(263, 57);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(156, 22);
+            this.dateTimePicker2.TabIndex = 12;
             // 
-            // statusDataGridViewTextBoxColumn
+            // comboBox2
             // 
-            this.statusDataGridViewTextBoxColumn.DataPropertyName = "Status";
-            this.statusDataGridViewTextBoxColumn.HeaderText = "Status";
-            this.statusDataGridViewTextBoxColumn.Name = "statusDataGridViewTextBoxColumn";
+            this.comboBox2.DataSource = this.dataKelasBindingSource;
+            this.comboBox2.DisplayMember = "NamaKelas";
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(27, 57);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(176, 24);
+            this.comboBox2.TabIndex = 11;
+            this.comboBox2.ValueMember = "IDKelas";
             // 
             // listView1
             // 
@@ -334,51 +380,18 @@
             // 
             this.columnHeader5.Text = "Ijin";
             // 
-            // button1
+            // dataKelasTableAdapter
             // 
-            this.button1.Location = new System.Drawing.Point(469, 58);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(69, 23);
-            this.button1.TabIndex = 15;
-            this.button1.Text = "Get";
-            this.button1.UseVisualStyleBackColor = true;
+            this.dataKelasTableAdapter.ClearBeforeFill = true;
             // 
-            // label3
+            // dataSet1BindingSource
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(260, 33);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(60, 17);
-            this.label3.TabIndex = 14;
-            this.label3.Text = "Tanggal";
+            this.dataSet1BindingSource.DataSource = this.dataSet1;
+            this.dataSet1BindingSource.Position = 0;
             // 
-            // label4
+            // tabelLaporanTableAdapter
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(24, 33);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(43, 17);
-            this.label4.TabIndex = 13;
-            this.label4.Text = "Kelas";
-            // 
-            // dateTimePicker2
-            // 
-            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker2.Location = new System.Drawing.Point(263, 57);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(156, 22);
-            this.dateTimePicker2.TabIndex = 12;
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.DataSource = this.dataKelasBindingSource;
-            this.comboBox2.DisplayMember = "NamaKelas";
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(27, 57);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(176, 24);
-            this.comboBox2.TabIndex = 11;
-            this.comboBox2.ValueMember = "IDKelas";
+            this.tabelLaporanTableAdapter.ClearBeforeFill = true;
             // 
             // MenuUtama
             // 
@@ -422,7 +435,6 @@
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.StatusStrip statusStrip1;
-        private System.Windows.Forms.ToolStripStatusLabel UserLabel;
         private System.Windows.Forms.ToolStripStatusLabel StatusLabelUser;
         private System.Windows.Forms.BindingSource dataSet1BindingSource;
         private DataSet1 dataSet1;
@@ -434,7 +446,7 @@
         private System.Windows.Forms.Button GetButton;
         private System.Windows.Forms.DataGridViewTextBoxColumn namaSiswaDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button Getbutton1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
@@ -445,5 +457,7 @@
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.ColumnHeader columnHeader4;
         private System.Windows.Forms.ColumnHeader columnHeader5;
+        private System.Windows.Forms.Button RegisterButton;
+        private System.Windows.Forms.ToolStripStatusLabel UserLabel;
     }
 }

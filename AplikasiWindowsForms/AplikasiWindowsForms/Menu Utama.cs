@@ -150,5 +150,59 @@ namespace AplikasiWindowsForms
             DataTable dt_new = adapter.GetDataBy((int)comboBox1.SelectedValue, dateTimePicker1.Text);
             dataGridView1.DataSource = dt_new;
         }
+
+        private void Getbutton1_Click(object sender, EventArgs e)
+        {
+
+            //get data
+
+            DataSiswaTableAdapter dataSiswa = new DataSiswaTableAdapter();
+
+            DataTable data_siswa = dataSiswa.GetDataByIDKelas((int)comboBox1.SelectedValue);
+
+            TabelLaporanTableAdapter ada = new TabelLaporanTableAdapter();
+
+
+            int Hadir = 0, Absen = 0, Terlambat = 0, Ijin = 0;
+
+            //loop
+            foreach(DataRow row in data_siswa.Rows)
+            {
+                //hitung kehadiran
+                Hadir = (int)ada.GetDataByReport(dateTimePicker2.Value.Month, row[1].ToString(), "hadir").Rows[0][6];
+
+                //hitung absen
+                Absen = (int)ada.GetDataByReport(dateTimePicker2.Value.Month, row[1].ToString(), "absen").Rows[0][6];
+
+                //hitung terlambat
+                Terlambat = (int)ada.GetDataByReport(dateTimePicker2.Value.Month, row[1].ToString(), "terlambat").Rows[0][6];
+
+                //Ijin
+                Ijin = (int)ada.GetDataByReport(dateTimePicker2.Value.Month, row[1].ToString(), "ijin").Rows[0][6];
+
+                ListViewItem litem = new ListViewItem();
+                litem.Text = row[1].ToString();
+                litem.SubItems.Add(Hadir.ToString());
+                litem.SubItems.Add(Absen.ToString());
+                litem.SubItems.Add(Terlambat.ToString());
+                litem.SubItems.Add(Ijin.ToString());
+                listView1.Items.Add(litem);
+            }
+
+
+            //tambahkan
+
+
+
+
+
+        }
+
+        private void RegisterButton_Click(object sender, EventArgs e)
+        {
+            RegisterForm register = new RegisterForm();
+
+            register.ShowDialog();
+        }
     }
 }
