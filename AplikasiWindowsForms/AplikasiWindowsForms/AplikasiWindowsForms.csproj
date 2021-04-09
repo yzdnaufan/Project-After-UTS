@@ -64,7 +64,6 @@
     <Compile Include="Menu Utama.Designer.cs">
       <DependentUpon>Menu Utama.cs</DependentUpon>
     </Compile>
-    <Compile Include="Mahasiswa.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Login Page.resx">
