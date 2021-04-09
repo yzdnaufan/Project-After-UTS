@@ -52,6 +52,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="FormTambahKelas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTambahKelas.Designer.cs">
+      <DependentUpon>FormTambahKelas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login Page.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -66,6 +72,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormTambahKelas.resx">
+      <DependentUpon>FormTambahKelas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login Page.resx">
       <DependentUpon>Login Page.cs</DependentUpon>
     </EmbeddedResource>

@@ -13,6 +13,7 @@ namespace AplikasiWindowsForms
     public partial class MenuUtama : Form
     {
         public bool logIn { get; set; }
+        public int UserID { get; set; }
 
         public MenuUtama()
         {
@@ -23,6 +24,7 @@ namespace AplikasiWindowsForms
         private void MenuUtama_Load(object sender, EventArgs e)
         {
             
+
         }
 
         private void MenuUtama_Activated(object sender, EventArgs e)
@@ -41,10 +43,26 @@ namespace AplikasiWindowsForms
                 }
                 else
                 {
+                    UserID = login_.UserID;
+                    StatusLabelUser.Text = UserID.ToString();
                     logIn = true;
+
+                    // TODO: This line of code loads data into the 'dataSet1.DataKelas' table. You can move, or remove it, as needed.
+                    this.dataKelasTableAdapter.Fill(this.dataSet1.DataKelas);
+
+                    //filter Kelas berdasar User ID yang login
+                    dataKelasBindingSource.Filter = "UserID = '" + UserID.ToString() + "'";
                 }
             }
             
+        }
+
+        private void TambahKelasButton_Click(object sender, EventArgs e)
+        {
+            FormTambahKelas tambahKelas = new FormTambahKelas();
+            tambahKelas.UserID = this.UserID;
+            tambahKelas.ShowDialog();
+
         }
     }
 }

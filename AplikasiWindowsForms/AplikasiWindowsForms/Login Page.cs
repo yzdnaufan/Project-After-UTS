@@ -14,6 +14,8 @@ namespace AplikasiWindowsForms
     {
         public bool FlagLogin { get; set; }
 
+        public int UserID { get; set; }
+
         public Login_Page()
         {
             InitializeComponent();
@@ -30,6 +32,7 @@ namespace AplikasiWindowsForms
                 //ada isinya
                 MessageBox.Show("Login Sukses");
                 FlagLogin = true;
+                UserID = int.Parse(dt.Rows[0]["UserId"].ToString());
                 Close();
             }
             else
