@@ -31,6 +31,9 @@
             this.components = new System.ComponentModel.Container();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.UserLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.StatusLabelUser = new System.Windows.Forms.ToolStripStatusLabel();
             this.TambahSiswaButton = new System.Windows.Forms.Button();
             this.TambahKelasButton = new System.Windows.Forms.Button();
             this.HapusButton = new System.Windows.Forms.Button();
@@ -40,21 +43,18 @@
             this.label1 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.UserLabel = new System.Windows.Forms.ToolStripStatusLabel();
-            this.StatusLabelUser = new System.Windows.Forms.ToolStripStatusLabel();
-            this.dataSet1 = new AplikasiWindowsForms.DataSet1();
-            this.dataSet1BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataKelasBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSet1 = new AplikasiWindowsForms.DataSet1();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.dataSet1BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataKelasTableAdapter = new AplikasiWindowsForms.DataSet1TableAdapters.DataKelasTableAdapter();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.statusStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataKelasBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1BindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataKelasBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -88,6 +88,30 @@
             this.tabPage1.Text = "Kehadiran";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // statusStrip1
+            // 
+            this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.UserLabel,
+            this.StatusLabelUser});
+            this.statusStrip1.Location = new System.Drawing.Point(3, 528);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(757, 25);
+            this.statusStrip1.TabIndex = 9;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // UserLabel
+            // 
+            this.UserLabel.Name = "UserLabel";
+            this.UserLabel.Size = new System.Drawing.Size(45, 20);
+            this.UserLabel.Text = "User :";
+            // 
+            // StatusLabelUser
+            // 
+            this.StatusLabelUser.Name = "StatusLabelUser";
+            this.StatusLabelUser.Size = new System.Drawing.Size(15, 20);
+            this.StatusLabelUser.Text = "-";
+            // 
             // TambahSiswaButton
             // 
             this.TambahSiswaButton.Location = new System.Drawing.Point(619, 111);
@@ -96,6 +120,7 @@
             this.TambahSiswaButton.TabIndex = 8;
             this.TambahSiswaButton.Text = "Tambah Siswa";
             this.TambahSiswaButton.UseVisualStyleBackColor = true;
+            this.TambahSiswaButton.Click += new System.EventHandler(this.TambahSiswaButton_Click);
             // 
             // TambahKelasButton
             // 
@@ -170,6 +195,16 @@
             this.comboBox1.TabIndex = 0;
             this.comboBox1.ValueMember = "IDKelas";
             // 
+            // dataKelasBindingSource
+            // 
+            this.dataKelasBindingSource.DataMember = "DataKelas";
+            this.dataKelasBindingSource.DataSource = this.dataSet1;
+            // 
+            // dataSet1
+            // 
+            this.dataSet1.DataSetName = "DataSet1";
+            this.dataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // tabPage2
             // 
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
@@ -180,44 +215,10 @@
             this.tabPage2.Text = "Laporan";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // statusStrip1
-            // 
-            this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.UserLabel,
-            this.StatusLabelUser});
-            this.statusStrip1.Location = new System.Drawing.Point(3, 528);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(757, 25);
-            this.statusStrip1.TabIndex = 9;
-            this.statusStrip1.Text = "statusStrip1";
-            // 
-            // UserLabel
-            // 
-            this.UserLabel.Name = "UserLabel";
-            this.UserLabel.Size = new System.Drawing.Size(45, 20);
-            this.UserLabel.Text = "User :";
-            // 
-            // StatusLabelUser
-            // 
-            this.StatusLabelUser.Name = "StatusLabelUser";
-            this.StatusLabelUser.Size = new System.Drawing.Size(15, 20);
-            this.StatusLabelUser.Text = "-";
-            // 
-            // dataSet1
-            // 
-            this.dataSet1.DataSetName = "DataSet1";
-            this.dataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // dataSet1BindingSource
             // 
             this.dataSet1BindingSource.DataSource = this.dataSet1;
             this.dataSet1BindingSource.Position = 0;
-            // 
-            // dataKelasBindingSource
-            // 
-            this.dataKelasBindingSource.DataMember = "DataKelas";
-            this.dataKelasBindingSource.DataSource = this.dataSet1;
             // 
             // dataKelasTableAdapter
             // 
@@ -236,12 +237,12 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataKelasBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1BindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataKelasBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }

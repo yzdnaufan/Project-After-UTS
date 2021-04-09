@@ -58,6 +58,12 @@
     <Compile Include="FormTambahKelas.Designer.cs">
       <DependentUpon>FormTambahKelas.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormTambahSiswa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTambahSiswa.Designer.cs">
+      <DependentUpon>FormTambahSiswa.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login Page.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -74,6 +80,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormTambahKelas.resx">
       <DependentUpon>FormTambahKelas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTambahSiswa.resx">
+      <DependentUpon>FormTambahSiswa.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login Page.resx">
       <DependentUpon>Login Page.cs</DependentUpon>

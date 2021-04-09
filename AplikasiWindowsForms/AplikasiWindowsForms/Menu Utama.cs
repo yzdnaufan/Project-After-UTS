@@ -64,5 +64,16 @@ namespace AplikasiWindowsForms
             tambahKelas.ShowDialog();
 
         }
+
+        private void TambahSiswaButton_Click(object sender, EventArgs e)
+        {
+            FormTambahSiswa tambahSiswa = new FormTambahSiswa();
+
+            tambahSiswa.NamaKelas = comboBox1.Text;
+            tambahSiswa.IDKelas = (int) comboBox1.SelectedValue;
+
+            tambahSiswa.ShowDialog();
+
+        }
     }
 }
