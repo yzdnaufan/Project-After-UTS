@@ -10,16 +10,40 @@ using System.Windows.Forms;
 
 namespace AplikasiWindowsForms
 {
-    public partial class Form1 : Form
+    public partial class Login_Page : Form
     {
-        public Form1()
+        public bool FlagLogin { get; set; }
+
+        public int UserID { get; set; }
+
+        public Login_Page()
         {
             InitializeComponent();
+            FlagLogin = false;
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void Login_Click(object sender, EventArgs e)
         {
+            DataSet1TableAdapters.Table_1TableAdapter userAdapter = new DataSet1TableAdapters.Table_1TableAdapter();
+            DataTable dt = userAdapter.GetDataByUserAndPass(textBoxUser.Text, textBoxPass.Text);
+
+            if (dt.Rows.Count > 0)
+            {
+                //ada isinya
+                MessageBox.Show("Login Sukses");
+                FlagLogin = true;
+                UserID = int.Parse(dt.Rows[0]["UserId"].ToString());
+                Close();
+            }
+            else
+            {
+                //ngga ada isinya
+                MessageBox.Show("Akses ditolak");
+                FlagLogin = false;
+
+            }
 
         }
+        
     }
 }

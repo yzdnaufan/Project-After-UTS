@@ -47,26 +47,48 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Admin.cs" />
-    <Compile Include="Mahasiswa.cs" />
-    <Compile Include="Menu Utama.cs">
+    <Compile Include="DataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="FormTambahKelas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Menu Utama.Designer.cs">
-      <DependentUpon>Menu Utama.cs</DependentUpon>
+    <Compile Include="FormTambahKelas.Designer.cs">
+      <DependentUpon>FormTambahKelas.cs</DependentUpon>
     </Compile>
-    <Compile Include="Staff.cs" />
-    <Compile Include="User.cs" />
+    <Compile Include="FormTambahSiswa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTambahSiswa.Designer.cs">
+      <DependentUpon>FormTambahSiswa.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login Page.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Login Page.Designer.cs">
       <DependentUpon>Login Page.cs</DependentUpon>
     </Compile>
+    <Compile Include="Menu Utama.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menu Utama.Designer.cs">
+      <DependentUpon>Menu Utama.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormTambahKelas.resx">
+      <DependentUpon>FormTambahKelas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTambahSiswa.resx">
+      <DependentUpon>FormTambahSiswa.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login Page.resx">
       <DependentUpon>Login Page.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menu Utama.resx">
+      <DependentUpon>Menu Utama.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -77,6 +99,17 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="DataSet1.xsc">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet1.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet1.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSet1.xss">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
