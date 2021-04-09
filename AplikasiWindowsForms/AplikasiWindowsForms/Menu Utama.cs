@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AplikasiWindowsForms.DataSet1TableAdapters;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -74,6 +75,80 @@ namespace AplikasiWindowsForms
 
             tambahSiswa.ShowDialog();
 
+        }
+
+        private void GetButton_Click(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'dataSet11.TabelLaporan' table. You can move, or remove it, as needed.
+            TabelLaporanTableAdapter adapter = new TabelLaporanTableAdapter();
+
+            DataTable dt = adapter.GetDataBy((int)comboBox1.SelectedValue, dateTimePicker1.Text);
+
+            if (dt.Rows.Count > 0)
+            {
+                //jika ada data
+
+                DataTable dt_new = adapter.GetDataBy((int)comboBox1.SelectedValue, dateTimePicker1.Text);
+                dataGridView1.DataSource = dt_new;
+
+            }
+            else
+            {
+                //jika tdk ada data
+
+                DataSiswaTableAdapter dataSiswa = new DataSiswaTableAdapter();
+
+                DataTable data_siswa = dataSiswa.GetDataByIDKelas((int)comboBox1.SelectedValue);
+
+                foreach (DataRow row in data_siswa.Rows) 
+                {
+                    //menambah Record Laporan tiap siswa
+                    adapter.InsertQuery((int)row[0], (int)comboBox1.SelectedValue, dateTimePicker1.Text, "", row[1].ToString(), comboBox1.Text);
+                }
+
+                DataTable dt_new = adapter.GetDataBy((int)comboBox1.SelectedValue, dateTimePicker1.Text);
+                dataGridView1.DataSource = dt_new;
+
+            }
+
+        }
+
+        private void SimpanButton_Click(object sender, EventArgs e)
+        {
+            TabelLaporanTableAdapter adapter = new TabelLaporanTableAdapter();
+
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                if (row.Cells[1].Value != null)
+                {
+                    adapter.UpdateQuery(row.Cells[1].Value.ToString(), row.Cells[0].Value.ToString(), (int)comboBox1.SelectedValue, dateTimePicker1.Text);
+
+                }
+
+
+            }
+
+            DataTable dt_new = adapter.GetDataBy((int)comboBox1.SelectedValue, dateTimePicker1.Text);
+            dataGridView1.DataSource = dt_new;
+        }
+
+        private void HapusButton_Click(object sender, EventArgs e)
+        {
+            TabelLaporanTableAdapter adapter = new TabelLaporanTableAdapter();
+
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                if (row.Cells[1].Value != null)
+                {
+                    adapter.UpdateQuery("", row.Cells[0].Value.ToString(), (int)comboBox1.SelectedValue, dateTimePicker1.Text);
+
+                }
+
+
+            }
+
+            DataTable dt_new = adapter.GetDataBy((int)comboBox1.SelectedValue, dateTimePicker1.Text);
+            dataGridView1.DataSource = dt_new;
         }
     }
 }
