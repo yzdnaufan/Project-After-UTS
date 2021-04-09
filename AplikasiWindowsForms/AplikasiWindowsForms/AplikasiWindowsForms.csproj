@@ -47,7 +47,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Admin.cs" />
     <Compile Include="DataSet1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -66,8 +65,6 @@
       <DependentUpon>Menu Utama.cs</DependentUpon>
     </Compile>
     <Compile Include="Mahasiswa.cs" />
-    <Compile Include="Staff.cs" />
-    <Compile Include="User.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Login Page.resx">
