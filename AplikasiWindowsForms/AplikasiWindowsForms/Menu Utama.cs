@@ -10,18 +10,41 @@ using System.Windows.Forms;
 
 namespace AplikasiWindowsForms
 {
-    public partial class Menu_Utama : Form
+    public partial class MenuUtama : Form
     {
-        public Menu_Utama()
+        public bool logIn { get; set; }
+
+        public MenuUtama()
         {
             InitializeComponent();
+            logIn = false;
         }
 
-        private void Load_Menu_Utama(object sender, EventArgs e)
+        private void MenuUtama_Load(object sender, EventArgs e)
         {
-            //buka login
-            LoginPage newLogin = new LoginPage();
-            newLogin.ShowDialog();
+            
+        }
 
+        private void MenuUtama_Activated(object sender, EventArgs e)
+        {
+            if (logIn == false)
+            {
+                //buka form login
+                Login_Page login_ = new Login_Page();
+                login_.ShowDialog();
+
+                //check flag login berhasil atau tidak
+
+                if (login_.FlagLogin == false)
+                {
+                    Close();
+                }
+                else
+                {
+                    logIn = true;
+                }
+            }
+            
         }
     }
+}
