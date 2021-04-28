@@ -1,6 +1,6 @@
 # Project Lanjutan UTS-PBO
 
-Sebuah Project yang dikerjakan dalam 2 Hari ketika UTS PBO oleh Ahmad Yazid Naufan
+Project Lanjutan Hasil dari UTS PBO
 
 Nama : Ahmad Yazid Naufan
 NIM : 20/460537/TK/51126
